@@ -36,6 +36,7 @@ return {
    switch_to_last_active_tab_when_closing_tab = true,
 
    -- window
+   window_decorations = 'RESIZE',
    window_padding = {
       left = 0,
       right = 0,
