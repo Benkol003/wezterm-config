@@ -8,15 +8,11 @@ local options = {
 if platform.is_win then
    options.default_prog = { 'pwsh', '-NoLogo' }
    options.launch_menu = {
-      { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
-      { label = 'PowerShell Desktop', args = { 'powershell' } },
+      { label = 'PowerShell', args = { 'pwsh', '-NoLogo' } },
       { label = 'Command Prompt', args = { 'cmd' } },
-      { label = 'Nushell', args = { 'nu' } },
-      { label = 'Msys2', args = { 'ucrt64.cmd' } },
-      {
-         label = 'Git Bash',
-         args = { 'C:\\Users\\kevin\\scoop\\apps\\git\\current\\bin\\bash.exe' },
-      },
+      { label  = "VS Dev Console", args = {'pwsh', '-NoLogo','-NoExit','-Command','Launch-VsDevShell.ps1'} },
+      { label = 'Msys2', args = { 'msys2_shell.cmd','-defterm','-here','-no-start' } },
+      { label = 'Msys2 Ucrt64', args = { 'msys2_shell.cmd','-defterm','-here','-no-start', '-ucrt64' } }
    }
 elseif platform.is_mac then
    options.default_prog = { '/opt/homebrew/bin/fish', '-l' }
