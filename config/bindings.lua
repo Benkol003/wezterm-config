@@ -210,6 +210,18 @@ local keys = {
          timemout_miliseconds = 1000,
       }),
    },
+   {
+      key = 'b',
+      mods = 'CTRL',
+      action = act.Multiple { 
+        act.ActivateKeyTable({
+          name = 'tmux_mode',
+          one_shot = false,
+          timemout_milliseconds = 1000,
+        }),
+        act.SendKey { key = 'b', mods = 'CTRL' },
+      }
+   },
 }
 
 -- stylua: ignore
@@ -228,6 +240,12 @@ local key_tables = {
       { key = 'l',      action = act.AdjustPaneSize({ 'Right', 1 }) },
       { key = 'Escape', action = 'PopKeyTable' },
       { key = 'q',      action = 'PopKeyTable' },
+   },
+   tmux_mode = {
+     { key = 'Escape', action = act.Multiple { act.PopKeyTable, act.SendKey { key = 'Escape' } }, },
+     { key = "PageUp", action = act.SendKey { key = "PageUp" }, },
+     { key = "PageDown", action = act.SendKey { key = "PageDown" }, },
+		 { key = 'b', mods = 'CTRL', action = act.SendKey { key = 'b', mods = 'CTRL' }, },
    },
 }
 
