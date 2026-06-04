@@ -27,11 +27,12 @@ local mocha = {
    base      = '#1f1f28',
    mantle    = '#181825',
    crust     = '#11111b',
+   black     = '#000000',
 }
 
 local colorscheme = {
    foreground = mocha.text,
-   background = mocha.base,
+   background = mocha.black,
    cursor_bg = mocha.rosewater,
    cursor_border = mocha.rosewater,
    cursor_fg = mocha.crust,
